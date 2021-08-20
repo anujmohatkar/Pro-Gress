@@ -1,0 +1,22 @@
+<div class="con">
+      <h1><div class="fontright">Welcome</div></h1>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="box">
+        <i  class="fas fa-envelope"></i>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      </div>
+      <div class="box">
+        <i  class="fas fa-key"></i>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+      </div>
+      <%= f.submit "Log in", class: "btn" %>
+      <% end %>
+
+      <div class="box">
+
+        <div class="links">
+
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-secondary btn-sm' %><%= link_to "Forgot pass?", new_password_path(resource_name), class: 'btn btn-secondary btn-sm' %>
+    </div>
+      </div>
+    </div>

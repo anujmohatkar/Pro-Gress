@@ -1,0 +1,29 @@
+<h1>Listing pr_items</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Completed</th>
+    <th>Completed at</th>
+    <th>Pr list</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pr_items.each do |pr_item| %>
+  <tr>
+    <td><%= pr_item.description %></td>
+    <td><%= pr_item.completed %></td>
+    <td><%= pr_item.completed_at %></td>
+    <td><%= pr_item.pr_list %></td>
+    <td><%= link_to 'Show', [pr_item.pr_list, pr_item] %></td>
+    <td><%= link_to 'Edit', edit_pr_list_pr_item_path(pr_item.pr_list, pr_item) %></td>
+    <td><%= link_to 'Destroy', [pr_item.pr_list, pr_item], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pr item', new_pr_list_pr_item_path(params[:pr_list_id]) %>

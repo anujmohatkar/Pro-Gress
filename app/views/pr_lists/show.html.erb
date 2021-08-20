@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @pr_list.title %>
+</p>
+
+<ul>
+  <% @pr_list.pr_items.each do |pr_item| %>
+    <li><%= pr_item.description %></li>
+   <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_pr_list_path(@pr_list) %> |
+<%= link_to 'Back', pr_lists_path %>

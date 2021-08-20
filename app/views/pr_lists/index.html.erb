@@ -1,0 +1,15 @@
+
+<div class="card-header d-flex justify-content-between">
+  <span>
+  Projects List
+  </span>
+  <%= link_to 'New Project List', new_pr_list_path, class: 'btn btn-primary btn-sm' %>
+</div>
+
+<ul class="list-group">
+  <% @pr_lists.each do |pr_list| %>
+  <li class="list-group-item">
+    <%= link_to pr_list.title, pr_list %>
+  </li>
+    <% end %>
+</ul>
