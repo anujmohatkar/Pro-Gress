@@ -1,15 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <div class="card mt-5">
 
-<p>
-  <strong>Title:</strong>
-  <%= @pr_list.title %>
-</p>
 
-<ul>
+
+<div class="card-header d-flex justify-content-between">
+  <div>
+  <h5 class="m-1"><%= @pr_list.title %></h5>
+  <p class="text-secondary m-0"><small><%= @pr_list.percent_complete %>% Complete (<%= @pr_list.completed_items %>/<%= @pr_list.total_items %> Tasks)</small></p>
+  </div>
+  <div>
+  <%= link_to 'Edit', edit_pr_list_path(@pr_list), class: 'btn btn-info' %>
+  </div>
+</div>
+
+
+ <div class="card-body">
+  <div class="progress mb-4">
+  <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: <%= @pr_list.percent_complete %>%" aria-valuenow="<%= @pr_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
+ </div>
+
+
+
+<ul class="list-group">
   <% @pr_list.pr_items.each do |pr_item| %>
-    <li><%= pr_item.description %></li>
-   <% end %>
+  <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <span>
+        <%= pr_item.description %>
+      </span>
+      <span>
+        
+      <%= link_to "#", class: 'btn btn-success btn-circle' do %>
+       <i class='fas fa-check' ></i>
+       <% end %>
+       <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
+       <i class='fas fa-trash' ></i>
+       <% end %>
+      </span>
+    </div>
+  </li>
+    <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_pr_list_path(@pr_list) %> |
-<%= link_to 'Back', pr_lists_path %>
+</div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+ 
+

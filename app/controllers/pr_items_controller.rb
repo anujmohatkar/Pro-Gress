@@ -33,7 +33,7 @@ class PrItemsController < ApplicationController
 
   # PUT pr_lists/1/pr_items/1
   def update
-    if @pr_item.update_attributes(pr_item_params)
+    if @pr_item.update(pr_item_params)
       redirect_to([@pr_item.pr_list, @pr_item], notice: 'Pr item was successfully updated.')
     else
       render action: 'edit'

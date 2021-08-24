@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
     <%= form.text_field :title %>
+    <%= form.number_field :user_id, id: :pr_list_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+
   </div>
 
   <div class="actions">

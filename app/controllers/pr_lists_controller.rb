@@ -64,6 +64,6 @@ class PrListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pr_list_params
-      params.require(:pr_list).permit(:title)
+      params.require(:pr_list).permit(:title, :user_id)
     end
 end
