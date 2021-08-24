@@ -1,5 +1,6 @@
 class PrListsController < ApplicationController
   before_action :set_pr_list, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /pr_lists or /pr_lists.json
   def index
@@ -8,6 +9,7 @@ class PrListsController < ApplicationController
 
   # GET /pr_lists/1 or /pr_lists/1.json
   def show
+    @pr_item = PrItem.new
   end
 
   # GET /pr_lists/new

@@ -19,4 +19,26 @@ class PrList < ApplicationRecord
   def total_items
     @total_items ||= pr_items.count
   end
+
+  def status
+    case percent_complete.to_i
+    when 0
+      'Not Started'
+    when 100
+      'Finished'
+    else
+      'In Production'
+    end
+  end
+
+  def badge_color
+    case percent_complete.to_i
+    when 0
+      'warning'
+    when 100
+      'success'
+    else
+      'primary'
+    end
+  end
 end

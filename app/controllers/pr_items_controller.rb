@@ -25,7 +25,7 @@ class PrItemsController < ApplicationController
     @pr_item = @pr_list.pr_items.build(pr_item_params)
 
     if @pr_item.save
-      redirect_to([@pr_item.pr_list, @pr_item], notice: 'Pr item was successfully created.')
+      redirect_to(@pr_item.pr_list)
     else
       render action: 'new'
     end

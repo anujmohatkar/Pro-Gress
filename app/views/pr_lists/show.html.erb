@@ -7,11 +7,14 @@
 
 <div class="card-header d-flex justify-content-between">
   <div>
-  <h5 class="m-1"><%= @pr_list.title %></h5>
+  <h5 class="m-1"><b style=" font-family: 'Montserrat', sans-serif;"><%= @pr_list.title %></b>
+  <span class="badge badge-<%= @pr_list.badge_color %>"><%= @pr_list.status %></span>
+</h5>
   <p class="text-secondary m-0"><small><%= @pr_list.percent_complete %>% Complete (<%= @pr_list.completed_items %>/<%= @pr_list.total_items %> Tasks)</small></p>
   </div>
   <div>
   <%= link_to 'Edit', edit_pr_list_path(@pr_list), class: 'btn btn-info' %>
+  <%= link_to 'Destroy', pr_list_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
   </div>
 </div>
 
@@ -21,26 +24,52 @@
   <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: <%= @pr_list.percent_complete %>%" aria-valuenow="<%= @pr_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
  </div>
 
+<%= form_with(model: [@pr_list, @pr_item]) do |f| %>
+ <div class="input-group mb-2">
+          <%= f.text_field :description, class:'form-control', placeholder:'Add a Task' %> 
+        <div class="input-group-append">
+          <%= f.submit "Add", class: 'btn btn-primary input-group-btn' %>
+        </div>
+      </div>
+    </div>
+<% end %>
 
 
 <ul class="list-group">
   <% @pr_list.pr_items.each do |pr_item| %>
+  <% if pr_item.completed? %>
   <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <span class="text-muted">
+        <em><%= pr_item.description %></em>
+      </span>
+      <span>
+      <%= link_to "#", class: 'btn btn-dark btn-circle' do %>
+       <i class='fas fa-times' ></i>
+      <% end %>
+      <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
+       <i class='fas fa-trash' ></i>
+      <% end %>
+      </span>
+    </div>
+  </li>
+  <% else %>
+   <li class="list-group-item">
     <div class="d-flex justify-content-between">
       <span>
         <%= pr_item.description %>
       </span>
       <span>
-        
       <%= link_to "#", class: 'btn btn-success btn-circle' do %>
        <i class='fas fa-check' ></i>
-       <% end %>
-       <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
+      <% end %>
+      <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
        <i class='fas fa-trash' ></i>
-       <% end %>
+      <% end %>
       </span>
     </div>
   </li>
+  <% end %> 
     <% end %>
 </ul>
 
