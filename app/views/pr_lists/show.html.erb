@@ -35,6 +35,8 @@
 <% end %>
 
 
+
+
 <ul class="list-group">
   <% @pr_list.pr_items.each do |pr_item| %>
   <% if pr_item.completed? %>
@@ -44,10 +46,10 @@
         <em><%= pr_item.description %></em>
       </span>
       <span>
-      <%= link_to "#", class: 'btn btn-dark btn-circle' do %>
+      <%= link_to "#", class: 'btn btn-dark btn-circle', data: { reflex: 'click->PrItem#mark_incomplete', id: pr_item.id } do %>
        <i class='fas fa-times' ></i>
       <% end %>
-      <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
+      <%= link_to "#", class: 'btn btn-danger btn-circle', data: { reflex: 'click->PrItem#delete', id: pr_item.id } do %>
        <i class='fas fa-trash' ></i>
       <% end %>
       </span>
@@ -60,10 +62,10 @@
         <%= pr_item.description %>
       </span>
       <span>
-      <%= link_to "#", class: 'btn btn-success btn-circle' do %>
+      <%= link_to "#", class: 'btn btn-success btn-circle', data: { reflex: 'click->PrItem#mark_complete', id: pr_item.id } do %>
        <i class='fas fa-check' ></i>
       <% end %>
-      <%= link_to "#", class: 'btn btn-danger btn-circle' do %>
+      <%= link_to "#", class: 'btn btn-danger btn-circle', data: { reflex: 'click->PrItem#delete', id: pr_item.id } do %>
        <i class='fas fa-trash' ></i>
       <% end %>
       </span>
