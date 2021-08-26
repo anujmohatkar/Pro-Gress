@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="timeline.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <script src="https://kit.fontawesome.com/fe909495a1.js" crossorigin="anonymous"></script>
@@ -21,8 +22,21 @@
   <body>
 
     <%= render 'home/header' %>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <br />
+         
+      <% if notice %>
+     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+     </div>
+     <% end %>
+
+
+
+    <!--<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p> -->
 
     
             <%= yield %> 
