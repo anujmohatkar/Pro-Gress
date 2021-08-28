@@ -1,4 +1,9 @@
-<%= render "pr_lists/timeline" %>
+
+ <% @pr_list.pr_items.each do |pr_item| %>
+   <% if pr_item.completed? %>
+    <h1><%= pr_item.completed_at %></h1>
+   <% end %>
+  <% end %>
 
 
 <div class="container">
@@ -46,7 +51,7 @@
   <li class="list-group-item">
     <div class="d-flex justify-content-between">
       <span class="text-muted">
-        <em><%= pr_item.description %></em>
+        <em><%= pr_item.description %> <%= pr_item.completed_at %></em>
       </span>
       <span>
       <%= link_to "#", class: 'btn btn-dark btn-circle', data: { reflex: 'click->PrItem#mark_incomplete', id: pr_item.id } do %>

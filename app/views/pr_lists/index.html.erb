@@ -1,4 +1,10 @@
-
+<% @pr_lists.each do |pr_list| %>
+ <% pr_list.pr_items.each do |pr_item| %>
+   <% if pr_item.completed? %>
+    <h1><%= pr_list.title %> <%= pr_item.description %><%= pr_item.completed_at %></h1>
+   <% end %>
+  <% end %>
+<% end %>
 
 <div class="container">
   <div class="row">
@@ -45,7 +51,7 @@
       <div class="card mt-5">
 
 
-<canvas id="barChart"></canvas>
+       <canvas id="barChart"></canvas>
 
 
        </div>

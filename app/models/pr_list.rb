@@ -44,11 +44,8 @@ class PrList < ApplicationRecord
 
   # following code contains bugs and is in production
 
-  def statistics
-   
+  def stats
     
   end
-
-
 
 end
