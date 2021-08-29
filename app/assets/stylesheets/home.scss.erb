@@ -1,0 +1,331 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Monoton&family=Righteous&family=Roboto&display=swap');
+
+$font-family:'Roboto', sans-serif;;
+$font-size-base: 0.925rem;
+$base-color: #66f;
+$text-dark: #3c4250;
+$border-color: #eceef3;
+
+$navbar-body-color: #fff;
+// $navbar-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.035);
+$navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$navbar-padding-y: 1rem;
+$navbar-padding-x: 1.15rem;
+
+$navbar-link-hover: $base-color;
+$navbar-link-padding-y: 0.5rem;
+$navbar-link-padding-x: 1rem;
+
+$navbar-dropdown-padding-y: 0.5rem;
+$navbar-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$navbar-dropdown-radius: 0.75rem;
+
+$navbar-dropdown-item-padding-y: 0.25rem;
+$navbar-dropdown-item-padding-x: 1rem;
+
+$navbar-dropdown-separator-margin-y: 9px;
+$navbar-dropdown-separator-color: $border-color;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: $font-size-base;
+}
+
+a {
+  text-decoration: none;
+  display: inline;
+}
+
+.conta {
+  width: 1170px;
+  position: relative;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
+}
+
+// Start navbar
+
+.navbar,
+.navbar > .conta {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.fontsa{
+  font-family: 'Monoton', cursive;
+}
+
+.navbar {
+  box-shadow: $navbar-shadow;
+  background-color: #c9feff;
+  //background-color: #fbff85;
+  padding: $navbar-padding-y $navbar-padding-x;
+  border-bottom: 1px solid $border-color;
+
+  .conta {
+    @media (min-width: 576px) {
+      max-width: 540px;
+    }
+    @media (min-width: 768px) {
+      max-width: 720px;
+    }
+    @media (min-width: 992px) {
+      max-width: 960px;
+    }
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+    }
+  }
+
+  /*
+  |-----------------------------------
+  | Start navbar logo or brand etc..
+  |-----------------------------------
+  */
+  .navbar-header {
+    display: inline;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .navbar-toggler {
+      // border-radius: 5px;
+      // background-color: transparent;
+      cursor: pointer;
+      border: none;
+      display: none;
+      outline: none;
+
+      @media (max-width: 768px) { display: block }
+
+
+      .fontsaf {
+        font-family: 'Monoton', cursive;
+      }
+
+      span {
+        height: 2px;
+        width: 22px;
+        background-color: lighten($text-dark, 35%);
+        display: block;
+      }
+      span:not(:last-child) {
+        margin-bottom: 0.2rem;
+
+      }
+    }
+
+    > a {
+      font-weight: 500;
+      color: $text-dark;
+    }
+  }
+
+  /*
+  |-----------------------------------
+  | Start navbar menu
+  |-----------------------------------
+  */
+
+  .nav-font {
+    font-family: $font-family;
+  }
+  .navbar-menu {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      display: none;
+      text-align: center;
+    }
+
+    // Ul
+    .navbar-nav {
+      margin-left: auto;
+      flex-direction: row;
+      display: flex;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        display: block;
+        border-top: 1px solid #EEE;
+        margin-top: 1rem;
+      }
+
+      > li {
+        > a {
+          color: $text-dark;
+          text-decoration: none;
+          display: inline;
+          padding: $navbar-link-padding-y $navbar-link-padding-x;
+          &:hover {
+            color: $navbar-link-hover;
+          }
+          @media (max-width: 768px) {
+            border-bottom: 1px solid $border-color;
+          }
+        }
+        &.active {
+          a {
+            color: $base-color;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-dropdown {
+    position: relative;
+  }
+}
+
+
+// Custom
+.navbar .navbar-header > a span {
+  color: $base-color;
+  font-family: 'Chakra Petch', sans-serif;
+}
+.navbar .navbar-header h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+}
+
+
+
+
+
+
+
+/* for login/signup pages */
+
+  @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
+*{
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+}
+/* a{
+   text-decoration: none;
+
+} */
+
+ /* body{
+  background: url('https://images.unsplash.com/photo-1523590564318-491748f70ea7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzQ2OTIwNg&ixlib=rb-1.2.1&q=85') no-repeat center center fixed ;
+  background-size: cover;
+  background-repeat: repeat;
+   background-color:#9b59b6;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0; 
+
+}*/
+
+.con {
+  /* border: 3px solid white; */
+  border-radius: 15px;
+  width: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 20%;
+  left: 33%;
+
+}
+.con h1{
+
+
+  color: black;
+  text-align:center;
+  font-size:40px;
+  border-bottom:3px solid purple;
+  margin-bottom: 20px;
+  padding: 13px 0px;
+
+}
+
+.box{
+  width: 100%;
+  border-bottom:  1px solid purple;
+}
+
+.box input{
+  width: 75%;
+  font-size: 20px;
+  /* margin: 12px 0px ; */
+  padding: 15px 10px;;
+  border: none;
+  outline: none;
+  color: black;
+  background: none;
+
+}
+.box i{
+  color:black;
+  text-align: center;
+  padding: 3px;
+  /* margin-left: 4px; */
+}
+
+.btun{
+  cursor: pointer;
+  outline: none;
+  background: none;
+  color: black;
+  /* border-radius: 12px; */
+  width: 25%;
+  padding: 10px;
+  margin: 22px ;
+  border: 2px solid purple;
+  margin-left: 35%;
+
+
+
+}
+.btun:hover{
+  color: purple;
+  background: white;
+}
+
+.fontright {
+  font-family: 'Righteous', cursive;
+}
+
+.links {
+  display: inline-block;
+}
