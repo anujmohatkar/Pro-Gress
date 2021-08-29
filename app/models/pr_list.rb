@@ -9,8 +9,6 @@ class PrList < ApplicationRecord
     ( 100 * completed_items.to_f / total_items).round(1)
   end
 
-
-
   def completed_items
     @completed_items ||= pr_items.completed.count
 
@@ -43,9 +41,5 @@ class PrList < ApplicationRecord
   end
 
   # following code contains bugs and is in production
-
-  def stats
-    
-  end
 
 end

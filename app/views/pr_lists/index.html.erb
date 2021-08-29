@@ -1,36 +1,45 @@
-<% @pr_lists.each do |pr_list| %>
- <% pr_list.pr_items.each do |pr_item| %>
-   <% if pr_item.completed? %>
-    <h1><%= pr_list.title %> <%= pr_item.description %><%= pr_item.completed_at %></h1>
-   <% end %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <div class="card mt-5">
+        <div class="card-header">
+         Timeline
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @pr_lists.each do |pr_list| %>
+            <% pr_list.pr_items.each do |pr_item| %>
+              <% if pr_item.completed? %>
+                <li class="list-group-item">
+                  <%= pr_list.title %> <%= pr_item.description %><%= pr_item.completed_at %>
+                </li>
+             <% end %>
+            <% end %>
+          <% end %> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
       <div class="card mt-5">
-
-
-
-<div class="card-header d-flex justify-content-between">
-  <span>
-   <h4 style=" font-family: 'Montserrat', sans-serif;"><u color="cyan">Projects List</u></h4>
-  </span>
-  <%= link_to 'New Project', new_pr_list_path, class: 'btn btn-primary btn-sm' %>
-</div>
-
-
-
-<ul class="list-group">
-  <% @pr_lists.each do |pr_list| %>
-  <% if pr_list.user == current_user %>
-  <li class="list-group-item">
-    <%= link_to pr_list.title, pr_list %>
-  </li>
-    <% end %>
-    <% end %>
-</ul>
+        <div class="card-header d-flex justify-content-between">
+          <span>
+            <h4 style=" font-family: 'Montserrat', sans-serif;"><u color="cyan">Projects List</u></h4>
+          </span>
+        <%= link_to 'New Project', new_pr_list_path, class: 'btn btn-primary btn-sm' %>
+      </div>
+      <ul class="list-group">
+        <% @pr_lists.each do |pr_list| %>
+          <% if pr_list.user == current_user %>
+            <li class="list-group-item">
+              <%= link_to pr_list.title, pr_list %>
+            </li>
+           <% end %>
+          <% end %>
+      </ul>
 
 
 
